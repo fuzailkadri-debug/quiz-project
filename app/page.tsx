@@ -292,23 +292,23 @@ export default function QuizPage() {
   // ── Intro Screen ────────────────────────────────────────────────────────────
   if (!started) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-5 py-12">
         <div className="max-w-lg w-full text-center">
-          <div className="text-6xl mb-6">☕</div>
+          <div className="text-7xl mb-6">☕</div>
           <h1
-            className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight"
+            className="text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             What&apos;s Your{" "}
             <span style={{ color: "#f59e0b" }}>Coffee</span>{" "}
             Personality?
           </h1>
-          <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+          <p className="text-gray-400 text-base sm:text-lg mb-10 leading-relaxed">
             6 questions. 4 personality types. Your perfect brew awaits. ✨
           </p>
           <button
             onClick={() => setStarted(true)}
-            className="px-10 py-4 rounded-full text-lg font-semibold text-black transition-all duration-200 hover:brightness-110 active:scale-95"
+            className="w-full sm:w-auto px-10 py-4 rounded-full text-lg font-semibold text-black transition-all duration-200 hover:brightness-110 active:scale-95"
             style={{ backgroundColor: "#f59e0b" }}
           >
             Start Quiz
@@ -322,46 +322,46 @@ export default function QuizPage() {
   if (result) {
     const p = personalities[result];
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-4 py-12">
+      <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center px-5 py-12">
         <div className="max-w-lg w-full">
           <div
-            className="rounded-2xl border p-8 text-center"
+            className="rounded-2xl border p-6 sm:p-8 text-center"
             style={{ backgroundColor: "#111111", borderColor: "#2a2a2a" }}
           >
             <div className="text-6xl mb-4">{p.emoji}</div>
-            <p className="text-sm font-medium uppercase tracking-widest mb-2" style={{ color: "#f59e0b" }}>
+            <p className="text-xs font-medium uppercase tracking-widest mb-2" style={{ color: "#f59e0b" }}>
               Your Coffee Personality
             </p>
             <h2
-              className="text-3xl sm:text-4xl font-bold text-white mb-2"
+              className="text-2xl sm:text-4xl font-bold text-white mb-2"
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               {p.name}
             </h2>
-            <p className="text-gray-400 italic mb-6">&ldquo;{p.tagline}&rdquo;</p>
+            <p className="text-gray-400 italic mb-6 text-sm sm:text-base">&ldquo;{p.tagline}&rdquo;</p>
 
             <div
-              className="rounded-xl p-5 mb-6 text-left"
+              className="rounded-xl p-4 sm:p-5 mb-6 text-left"
               style={{ backgroundColor: "#1a1a1a", borderColor: "#2a2a2a", border: "1px solid" }}
             >
               <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "#f59e0b" }}>
                 Your Perfect Cup
               </p>
-              <p className="text-white text-xl font-semibold">{p.coffee}</p>
+              <p className="text-white text-lg sm:text-xl font-semibold">{p.coffee}</p>
             </div>
 
-            <p className="text-gray-400 leading-relaxed mb-8">{p.description}</p>
+            <p className="text-gray-400 leading-relaxed mb-8 text-sm sm:text-base">{p.description}</p>
 
             <button
               onClick={handleRetake}
-              className="px-8 py-3 rounded-full font-semibold text-black transition-all duration-200 hover:brightness-110 active:scale-95"
+              className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-black transition-all duration-200 hover:brightness-110 active:scale-95"
               style={{ backgroundColor: "#f59e0b" }}
             >
               Retake Quiz
             </button>
           </div>
+          <p className="text-center text-gray-600 text-sm mt-6">Made by Fuzail Kadri</p>
         </div>
-        <p className="text-center text-gray-600 text-sm mt-6">Made by Fuzail Kadri</p>
       </div>
     );
   }
@@ -371,21 +371,17 @@ export default function QuizPage() {
   const isLastQuestion = currentQuestion === questions.length - 1;
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-5 py-12">
       <div className="max-w-lg w-full">
         {/* Progress dots */}
-        <div className="flex justify-center gap-2 mb-8">
+        <div className="flex justify-center gap-2 mb-6">
           {questions.map((_, i) => (
             <div
               key={i}
-              className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+              className="w-3 h-3 rounded-full transition-all duration-300"
               style={{
                 backgroundColor:
-                  i < currentQuestion
-                    ? "#f59e0b"
-                    : i === currentQuestion
-                    ? "#f59e0b"
-                    : "#2a2a2a",
+                  i <= currentQuestion ? "#f59e0b" : "#2a2a2a",
                 opacity: i <= currentQuestion ? 1 : 0.4,
               }}
             />
@@ -394,27 +390,27 @@ export default function QuizPage() {
 
         {/* Card */}
         <div
-          className="rounded-2xl border p-6 sm:p-8"
+          className="rounded-2xl border p-5 sm:p-8"
           style={{ backgroundColor: "#111111", borderColor: "#2a2a2a" }}
         >
           <p className="text-xs font-medium uppercase tracking-widest mb-3" style={{ color: "#f59e0b" }}>
             Question {currentQuestion + 1} of {questions.length}
           </p>
           <h2
-            className="text-xl sm:text-2xl font-bold text-white mb-6 leading-snug"
+            className="text-lg sm:text-2xl font-bold text-white mb-5 leading-snug"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             {q.question}
           </h2>
 
-          <div className="flex flex-col gap-3 mb-8">
+          <div className="flex flex-col gap-3 mb-6">
             {q.options.map((opt) => {
               const isSelected = selectedForCurrent === opt.personality;
               return (
                 <button
                   key={opt.personality}
                   onClick={() => handleSelect(opt.personality)}
-                  className="text-left rounded-xl px-4 py-3.5 border transition-all duration-200 flex items-center gap-3 hover:border-amber-500"
+                  className="text-left rounded-xl px-4 py-4 border transition-all duration-200 flex items-center gap-3 hover:border-amber-500 active:scale-[0.98]"
                   style={{
                     backgroundColor: isSelected
                       ? "rgba(245, 158, 11, 0.08)"
@@ -424,7 +420,7 @@ export default function QuizPage() {
                 >
                   <span className="text-2xl flex-shrink-0">{opt.emoji}</span>
                   <span
-                    className="font-medium"
+                    className="font-medium text-sm sm:text-base"
                     style={{ color: isSelected ? "#f59e0b" : "#e5e7eb" }}
                   >
                     {opt.text}
@@ -435,11 +431,11 @@ export default function QuizPage() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
             <button
               onClick={handleBack}
               disabled={currentQuestion === 0}
-              className="px-5 py-2.5 rounded-full text-sm font-medium border transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:border-gray-500"
+              className="flex-1 py-3.5 rounded-full text-sm font-medium border transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:border-gray-500"
               style={{
                 borderColor: "#2a2a2a",
                 color: "#9ca3af",
@@ -451,7 +447,7 @@ export default function QuizPage() {
             <button
               onClick={handleNext}
               disabled={!selectedForCurrent}
-              className="px-6 py-2.5 rounded-full text-sm font-semibold text-black transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:brightness-110 active:scale-95"
+              className="flex-[2] py-3.5 rounded-full text-sm font-semibold text-black transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:brightness-110 active:scale-95"
               style={{ backgroundColor: "#f59e0b" }}
             >
               {isLastQuestion ? "See My Result →" : "Next →"}
