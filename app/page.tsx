@@ -304,7 +304,7 @@ export default function QuizPage() {
             Personality?
           </h1>
           <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-            6 questions. 4 personality types. One perfect cup waiting for you. ☕
+            6 questions. 4 personality types. One perfect cup waiting for you.
           </p>
           <button
             onClick={() => setStarted(true)}
