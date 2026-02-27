@@ -260,6 +260,19 @@ export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<PersonalityKey[]>([]);
   const [result, setResult] = useState<PersonalityKey | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  async function handleShare(personalityName: string) {
+    const url = "https://quiz-project-sigma-swart.vercel.app";
+    const text = `I got "${personalityName}" on the Coffee Personality Quiz! ☕ What's yours?`;
+    if (navigator.share) {
+      await navigator.share({ title: "What's Your Coffee Personality?", text, url });
+    } else {
+      await navigator.clipboard.writeText(`${text}\n${url}`);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }
 
   const selectedForCurrent = answers[currentQuestion] ?? null;
 
@@ -352,13 +365,22 @@ export default function QuizPage() {
 
             <p className="text-gray-400 leading-relaxed mb-8 text-sm sm:text-base">{p.description}</p>
 
-            <button
-              onClick={handleRetake}
-              className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-black transition-all duration-200 hover:brightness-110 active:scale-95"
-              style={{ backgroundColor: "#f59e0b" }}
-            >
-              Retake Quiz
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => handleShare(p.name)}
+                className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-black transition-all duration-200 hover:brightness-110 active:scale-95"
+                style={{ backgroundColor: "#f59e0b" }}
+              >
+                {copied ? "Link Copied! ✓" : "Share My Result"}
+              </button>
+              <button
+                onClick={handleRetake}
+                className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold border transition-all duration-200 hover:border-gray-500 active:scale-95"
+                style={{ borderColor: "#2a2a2a", color: "#9ca3af", backgroundColor: "transparent" }}
+              >
+                Retake Quiz
+              </button>
+            </div>
           </div>
           <p className="text-center text-gray-600 text-sm mt-6">Made by Fuzail Kadri</p>
         </div>
