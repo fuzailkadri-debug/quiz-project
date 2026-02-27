@@ -361,6 +361,7 @@ export default function QuizPage() {
             </button>
           </div>
         </div>
+        <p className="text-center text-gray-600 text-sm mt-6">Made by Fuzail Kadri</p>
       </div>
     );
   }
