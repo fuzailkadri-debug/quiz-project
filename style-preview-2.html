@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 2: Minimal & Clean</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 4px;
+      padding: 3rem;
+      max-width: 540px;
+      width: 100%;
+      border: 1px solid #e5e7eb;
+    }
+    .meta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 2.5rem;
+    }
+    .progress {
+      width: 100%;
+      height: 1px;
+      background: #e5e7eb;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .progress::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      height: 1px;
+      width: 40%;
+      background: #111827;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #111827;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .option {
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+      border-radius: 2px;
+      transition: all 0.15s;
+      font-weight: 400;
+    }
+    .option:hover { border-color: #111827; color: #111827; }
+    .option.selected { border-color: #111827; background: #111827; color: white; }
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; }
+    .btn {
+      background: #111827;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 2px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+    .back { color: #9ca3af; font-size: 0.875rem; cursor: pointer; }
+    .style-label { position: absolute; top: -1rem; right: 0; background: #111827; color: white; padding: 0.3rem 1rem; border-radius: 2px; font-size: 0.8rem; font-weight: 500; }
+    .wrap { position: relative; max-width: 540px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="position:absolute;top:-1.5rem;right:0;background:#111827;color:white;padding:0.3rem 1rem;font-size:0.8rem;font-weight:500;font-family:Inter;">Style 2: Minimal & Clean</div>
+    <div class="card">
+      <div class="meta">Question 2 of 5</div>
+      <div class="progress"></div>
+      <h1>It's Friday night — what's your ideal plan?</h1>
+      <div class="options">
+        <div class="option selected">Spontaneous road trip — let's just go</div>
+        <div class="option">A cozy night in with something good to watch</div>
+        <div class="option">Out with friends, no plan needed</div>
+        <div class="option">Quiet evening — book, podcast, early night</div>
+      </div>
+      <div class="nav">
+        <span class="back">← Back</span>
+        <button class="btn">Continue</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

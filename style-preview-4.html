@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style 4: Warm & Cozy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fdf6ee;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      background: #fffbf5;
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 540px;
+      width: 100%;
+      border: 1px solid #e8d5b7;
+      box-shadow: 0 8px 40px rgba(180,120,60,0.08);
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .step-label { color: #a37a50; font-size: 0.8rem; font-weight: 500; }
+    .coffee-icon { font-size: 1.5rem; }
+    .progress {
+      background: #f0e0c8;
+      border-radius: 100px;
+      height: 6px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, #c87941, #e8a864);
+      height: 100%;
+      width: 40%;
+      border-radius: 100px;
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #3d2b1a;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .subtitle {
+      color: #a37a50;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .option {
+      border: 1.5px solid #e8d5b7;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #5c3d2a;
+      transition: all 0.2s;
+      background: white;
+    }
+    .option:hover { border-color: #c87941; background: #fdf3e7; }
+    .option.selected { border-color: #c87941; background: #fdf3e7; color: #8b4513; font-weight: 500; }
+    .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
+    .btn {
+      background: #c87941;
+      color: white;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .back { color: #a37a50; font-size: 0.875rem; cursor: pointer; }
+    .wrap { position: relative; max-width: 540px; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="position:absolute;top:-1.5rem;right:0;background:#c87941;color:white;padding:0.3rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:500;font-family:'DM Sans',sans-serif;">Style 4: Warm & Cozy</div>
+    <div class="card">
+      <div class="top">
+        <span class="step-label">Question 2 of 5</span>
+        <span class="coffee-icon">☕</span>
+      </div>
+      <div class="progress"><div class="progress-fill"></div></div>
+      <h1>It's Friday night — what's your ideal plan?</h1>
+      <p class="subtitle">Pick what feels most like you.</p>
+      <div class="options">
+        <div class="option selected">🏕️ Spontaneous road trip, no itinerary needed</div>
+        <div class="option">🛋️ Cozy night in — blanket, show, tea</div>
+        <div class="option">🥂 Out with friends, no plan required</div>
+        <div class="option">📖 Quiet solo evening, early to bed</div>
+      </div>
+      <div class="nav">
+        <span class="back">← Back</span>
+        <button class="btn">Next question →</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
